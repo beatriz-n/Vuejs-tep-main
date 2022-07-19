@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Usuario\Downloads\bootstrap-4.5.2-dist\css\bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        {{fullName}}
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    
+    <script>
+        var app =  new Vue({
+            el: "#app",
+            data:{
+                titulo:"aula 01 - vuejs",
+                firtName:"",//variavel
+                lastName:"",
+            },
+//propriedade que serve para retonar valores, retornar alguma rotina, sera sempre atualizada com as dependencias
+            computed:{
+                fullName(){
+                    return this.firtName +''+this.lastName; 
+                }
+            },
+//função fica dentro de method
+//watch é para observar quando uma varivel é alterada
+            watch:{
+                //firtName(nemValue){
+                //this.updateUser();
+                //}
+                //     
+               // }
+
+            },
+// toda logica deve estar aqui
+            methods:{
+                // updateUser(0{
+                //     console.log('usuario atualizado');
+            }
+        });
+    </script>
+</body>
+</html>

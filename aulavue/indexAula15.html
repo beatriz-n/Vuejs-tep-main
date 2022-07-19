@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Usuário\Downloads\bootstrap-4.3.1-dist\css\bootstrap.min.css">
+
+    <title>Document</title>
+</head>
+<!-- ventbus é uma nova instancia do vue que facilite a comunição entre os componentes -->
+<!-- this é o componente propriamente dito -->
+<!-- data é sempre uma função -->
+<body>
+    <div id="app">
+        <div class="container">
+            <input-form></input-form>
+
+            <br>
+
+            <my-list></my-list>
+        </div>
+        <br>
+<template id="form">
+        <div class="container">
+            <div class="card">
+                <div class="card-block">
+                    <div class="form-group">
+                        <label for="">Title</label>
+                        <input v-model="title" type="text" class="form-control">
+                    </div>
+                    <button @click.stop.prevent="submit()" class="btn btn-primary">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+</template>
+        <br>
+<template id="list">
+        <ul class="list-group">
+            <li v-for="item in list" class="list-group-item">{{item.title}}</li>
+            
+          </ul>     
+    </div>
+</template>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    
+    <script>
+        Vue.component('input-form', {
+            template: '#form',
+        data(){
+            return{
+                title: '',    
+            }
+        },
+        methods:{
+         submit(){
+            eventBus.$emit('submit', this.title);
+         }
+        }
+    });
+
+        Vue.component('my-list', {
+            template: '#list',
+            created(){
+                eventBus.$on('submit',function(title){
+                    if(title){
+                        this.list.push({title:title});
+                    }
+                });
+            },
+            data(){
+                return[{title:"ir a feira"},]
+                    
+                
+            }
+        });
+        
+        var eventBus = new Vue();
+
+        var app = new Vue({
+            el:"#app",
+
+            data: {
+                title:"aula Vue"
+            }
+                 });
+    </script>
+</body>
+</html>
+<!-- mixing forma de reutilizar suas rotinas (funcionalidades de seu aplicativo) -->

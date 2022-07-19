@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <label>Nome</label>
+        <input type="text" v-model="nome">
+
+        <br>
+        <label>Telefone</label>
+        <input type="text" v-model="tel">
+
+        <br>
+        <label>deseja receber novidades? </label>
+        <input type="radio" value="sim" v-model="novidades"> sim
+        <input type="radio" value="nao" v-model="novidades"> não
+
+        <br>
+        <label>interesses </label>
+        <input type="checkbox" value="futebol" v-model="interesses"> futebol<br>
+        <input type="checkbox" value="formula" v-model="interesses"> formula 1<br>
+        <input type="checkbox" value="corrida" v-model="interesses"> corrida<br>
+
+        <br>
+        <label>como nos conheceu? </label>
+        <select v-model="conheceu">
+       <option value="">escolha</option>
+       <option value="outro">Outro</option>
+       <option value="google">Google</option>
+       <option value="tv">TV</option>
+       <option value="revista">Revista</option>
+        </select>
+
+        <br><br>
+        <button>ENVIAR</button>
+    </div>
+
+    <hr>
+
+    nome: {{ nome }}<br>
+    tel: {{ tel }}<br>
+    novidades: {{ novidades }}<br>
+    interesses: {{ interesses }}<br>
+    conheceu: {{ conheceu }}<br>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    
+    <script>
+        var app =  new Vue({
+            el: "#app",
+            data:{
+                titulo:"aula 01 - vuejs",
+                nome:"",
+                tel:"",
+                novidades:"",
+                interesses:[],
+                conheceu:""
+            }
+        });
+    </script>
+</body>
+</html>

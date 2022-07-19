@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Usuário\Downloads\bootstrap-4.3.1-dist\css\bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>{{titulo}}</h1>
+            <button @click.stop.prevent="getUsers()" class="btn btn-success">GET</button>
+
+            <ul><li v-for="user in users">{{user.name}}</li></ul>
+        </div>
+    </div>      
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.3"></script>
+    
+    <script>
+        var mixin ={
+            methods:{
+                getUsers(){
+                    this.loader.users = true;
+                    var url ='https://jsonplaceholder.typicode.com/users';
+                    this.$http.get(url)
+                    .them(function(r){
+                        this.users = r.body;
+                    }, function(error){
+                        this.response.status="error";
+                    })
+                    .finally(function(){
+                        this.loader.users = false;
+                    });
+                    // quando essa consulta terminar eu vou executar uma ação
+                }
+            }
+        }
+        var app =  new Vue({
+            el: "#app",
+            mixins:[mixin],
+            data:{
+                titulo:"aula 01 - vuejs",
+                users:[],   
+            },
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Usuário\Downloads\bootstrap-4.3.1-dist\css\bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+       <button @click.stop.prevent="getUsers()" class="btn"></button>
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    
+    <script>
+        var mixin ={
+            methods:{
+                getUsers(){
+                    console.log('get Users');
+                }
+            }
+        }
+        var app =  new Vue({
+            el: "#app",
+            mixins:[mixin],
+            data:{
+                titulo:"aula 01 - vuejs",
+                
+            },
+
+        });
+    </script>
+</body>
+</html>

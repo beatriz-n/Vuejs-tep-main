@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\Users\Usuario\Downloads\bootstrap-4.5.2-dist\css\bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <button class="btn" v-bind:class="btnLimpar" v-bind:style="btnStyleLimpar">LIMPAR</button>     
+        <button class="btn" v-bind:class="btnEnviar" v-bind:style="btnStyleEnviar">ENVIAR</button>      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    
+    <script>
+        var app =  new Vue({
+            el: "#app",
+            data:{
+                titulo:"aula 01 - vuejs",
+                // btnLimpar:'btn-danger btn-sm',
+                // btnEnviar:'btn-primary btn-lg',
+                
+                //objeto
+                btnLimpar:{
+                'btn-danger':true,
+                'btn-sm':true
+                },
+                //array
+                btnEnviar: [
+                    'btn-primary',{'btn-lg':false}
+                ],
+                btnStyleLimpar:{
+                    'font-size': '50px',
+                },
+                btnStyleEnviar:{
+                    'font-size': '10px'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
