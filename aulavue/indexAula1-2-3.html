@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+<!-- https://cdn.jsdelivr.net/npm/vue/dist/vue.js -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +12,7 @@
     <div id="app">
         <h1>{{titulo}}</h1>
     </div>
-    <div v-if="usuario.nome == 1'">
+    <div v-if="usuario.nome == 'beatriz'">
         Id: {{ usuario.id }},<br>
         Nome: {{ usuario.nome }},<br>
         Profissao: {{ usuario.profisao }}
@@ -27,9 +29,9 @@
             data:{
                 titulo:"aula 01 - vuejs",
                 usuario: {
-                    id:1,
-                    nome:"beatriz",
-                    profisao:"ator"
+                    Id:1,
+                    Nome:"beatriz",
+                    Profisao:"ator"
                 }
             }
         });

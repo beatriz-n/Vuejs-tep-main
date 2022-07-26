@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\Users\Usuário\Downloads\bootstrap-4.3.1-dist\css\bootstrap.min.css">
+    <link rel="stylesheet" href="C:\Users\Usuario\Downloads\bootstrap-4.5.2-dist\css\bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
@@ -12,7 +12,8 @@
         <div class="container">
             <h1>{{titulo}}</h1>
             <button @click.stop.prevent="getUsers()" class="btn btn-success">GET</button>
-
+            <!-- <div v-if="response.status=='error'" class="alert alert danger">{{response.msg}</div>
+            <div v-if="loader.users" class="">carregando usuarios</div> -->
             <ul><li v-for="user in users">{{user.name}}</li></ul>
         </div>
     </div>      
@@ -24,7 +25,7 @@
         var mixin ={
             methods:{
                 getUsers(){
-                    this.loader.users = true;
+                    this.loader.users = true;   
                     var url ='https://jsonplaceholder.typicode.com/users';
                     this.$http.get(url)
                     .them(function(r){
@@ -44,8 +45,12 @@
             mixins:[mixin],
             data:{
                 titulo:"aula 01 - vuejs",
-                users:[],   
-            },
+                users:[],
+                response:{
+                    msg:"pagina não encontrada",
+                    status:""
+                }   
+            }
 
         });
     </script>

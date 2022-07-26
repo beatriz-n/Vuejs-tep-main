@@ -14,7 +14,7 @@
        
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     
     <script>
         var app =  new Vue({
@@ -24,27 +24,26 @@
                 firtName:"",//variavel
                 lastName:"",
             },
-//propriedade que serve para retonar valores, retornar alguma rotina, sera sempre atualizada com as dependencias
+            //propriedade que serve para retonar valores, retornar alguma rotina, sera sempre atualizada com as dependencias
             computed:{
                 fullName(){
-                    return this.firtName +''+this.lastName; 
+                    return this.firtName +''+ this.lastName; 
                 }
             },
-//função fica dentro de method
-//watch é para observar quando uma varivel é alterada
+            //função fica dentro de method
+            //watch é para observar quando uma varivel é alterada
             watch:{
-                //firtName(nemValue){
-                //this.updateUser();
-                //}
-                //     
-               // }
+                firtName(nemValue){
+                this.updateUser();
+                },         
 
             },
-// toda logica deve estar aqui
+            // toda logica deve estar aqui
             methods:{
-                // updateUser(0{
-                //     console.log('usuario atualizado');
+                 updateUser(){
+                 console.log('usuario atualizado');
             }
+        }
         });
     </script>
 </body>
